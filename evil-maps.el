@@ -428,6 +428,7 @@
 (define-key evil-motion-state-map "!" 'evil-shell-command)
 
 (evil-ex-define-cmd "e[dit]" 'evil-edit)
+(evil-ex-define-cmd "E[dit]" 'evil-Edit)
 (evil-ex-define-cmd "w[rite]" 'evil-write)
 (evil-ex-define-cmd "wa[ll]" 'evil-write-all)
 (evil-ex-define-cmd "sav[eas]" 'evil-save)

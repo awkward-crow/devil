@@ -2545,13 +2545,22 @@ FILENAME is given, the current file name is used."
     (setq filename (buffer-file-name (buffer-base-buffer))))
   (write-file filename (not bang)))
 
-(evil-define-command evil-edit (file &optional bang)
+(evil-define-command evil-Edit (file &optional bang)
   "Open FILE.
 If no FILE is specified, reload the current buffer from disk."
   :repeat nil
   (interactive "<f><!>")
   (if file
       (find-file file)
+    (revert-buffer bang (or bang (not (buffer-modified-p))) t)))
+
+(evil-define-command evil-edit (file &optional bang)
+  "Open FILE.
+If no FILE is specified, reload the current buffer from disk."
+  :repeat nil
+  (interactive "<f><!>")
+  (if file
+      (find-file-other-frame file)
     (revert-buffer bang (or bang (not (buffer-modified-p))) t)))
 
 (evil-define-command evil-read (count file)
